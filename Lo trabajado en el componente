@@ -1,0 +1,25 @@
+Introducción
+El modelamiento de software permite representar el funcionamiento de un sistema y comprender cómo interactúan sus usuarios con los procesos que lo componen. En este contexto, los diagramas UML facilitan la descripción de las funcionalidades y de los intercambios necesarios para desarrollar un escenario determinado.
+El presente documento integra los productos elaborados en los trabajos prácticos experimentales 1 y 2 de la asignatura Modelamiento de Software. Ambos trabajos se centran en MoviGo, una aplicación de movilidad urbana que conecta a pasajeros registrados con conductores disponibles para realizar viajes dentro de la ciudad.
+La primera práctica aborda la delimitación del sistema, la identificación de actores y la representación de sus funcionalidades mediante un diagrama de casos de uso. La segunda desarrolla los diagramas de comunicación y de secuencia correspondientes a un escenario exitoso de asignación de viaje. Estas representaciones permiten analizar el sistema desde perspectivas complementarias: los objetivos de sus actores, las conexiones entre participantes y el orden de sus mensajes.
+La integración tiene como finalidad consolidar los diagramas y su documentación, revisar su coherencia y organizar los archivos para su incorporación en un repositorio individual de GitHub. El alcance del trabajo se limita al modelamiento y la documentación del sistema, sin incluir su implementación.
+
+
+Diagrama de casos de uso
+5.1. Descripción
+El diagrama de casos de uso presenta las funcionalidades del sistema de movilidad urbana MoviGo desde la perspectiva de sus actores. El límite del sistema permite distinguir los servicios que ofrece la aplicación de las personas y los sistemas externos que interactúan con ella.
+Los actores identificados son los siguientes:
+Actor	Participación en el sistema
+Pasajero	Solicita el viaje, consulta la tarifa, visualiza los datos del conductor, realiza el pago y participa en la calificación.
+Conductor	Acepta solicitudes, confirma la recogida, participa en el seguimiento del recorrido, registra la finalización y califica al pasajero.
+Personal administrativo	Revisa usuarios, suspende cuentas y atiende reportes de viajes.
+Servicio externo de geolocalización	Proporciona información de ubicación y distancia para las operaciones del sistema.
+Proveedor externo de pagos	Autoriza las transacciones realizadas mediante un medio electrónico.
+5.2. Interpretación del diagrama
+El caso de uso «Solicitar viaje» articula el proceso principal. El pasajero indica su ubicación y destino, consulta la tarifa aproximada y confirma la solicitud. El sistema busca conductores disponibles y, cuando uno acepta, comunica al pasajero los datos correspondientes.
+Las relaciones de inclusión («include») representan comportamientos necesarios dentro de otro caso de uso. Por ejemplo, la búsqueda de conductores disponibles forma parte de la solicitud de viaje.
+Las relaciones de extensión («extend») expresan comportamientos sujetos a condiciones. La aplicación de una tarifa dinámica depende de que exista una demanda elevada en la zona. Asimismo, la nueva búsqueda se vincula con la situación en la que no se encuentran conductores disponibles.
+La generalización permite distinguir dos modalidades del caso «Realizar pago»: pagar en efectivo y pagar con un medio electrónico. Esta última requiere la autorización del proveedor externo de pagos.
+5.3. Continuidad con la primera práctica
+Se conserva la delimitación establecida en el trabajo anterior: el pasajero ya se encuentra registrado y no se modelan funciones de registro ni de inicio de sesión. También se mantienen los dos servicios externos y la participación del personal administrativo como actor primario.
+Estas decisiones corresponden a correcciones documentadas en la primera práctica y forman parte de la base utilizada para la integración.
